@@ -1,0 +1,30 @@
+<%- include ("templates/head.ejs") %>
+    
+    <h1>Programacion</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <% programas.forEach( function( items ) {  %>
+                    <th scope="col"><%= items.id %></th>
+                <% }); %>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <% programas.forEach( function( items ) {  %>
+                    
+                        <% items.day.forEach( function(prom) { %>
+                            <th> <%= prom.name %> (<%= prom.hour%>) </th>
+                        <% }); %>
+                    
+                <% }); %>
+            </tr>
+        </tbody>
+    </table>
+        
+    <form action="/newPrograma" method="post">
+        <input type="text" id="newPrograma" name="newPrograma">
+        <button type="submit">Agregar Programa</button>
+    </form>
+<%- include ("templates/footer.ejs") %>
